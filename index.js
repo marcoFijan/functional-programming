@@ -17,10 +17,11 @@ userInputButton.addEventListener('click', function(e){
 })
 
 function getAnswerOfQuery(list, query){
-  let results = []
-  for(answer of surveyAnswers){
-    results.push(answer[query])
-  }
+  let results = list.map(answer => answer[query])
+  // let results = []
+  // for(answer of surveyAnswers){
+  //   results.push(answer[query])
+  // }
   console.log('results are:', results)
   checkHash(results)
   //checkHexCode(results)
