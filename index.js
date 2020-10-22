@@ -18,32 +18,14 @@ userInputButton.addEventListener('click', function(e){
 
 function getAnswerOfQuery(list, query){
   let results = list.map(answer => answer[query])
-  // let results = []
-  // for(answer of surveyAnswers){
-  //   results.push(answer[query])
-  // }
   console.log('results are:', results)
+  //Check if string begins with #
   checkHash(results)
-  //checkHexCode(results)
+  // Check if string is a HEX
+  checkHexCode(results)
+  console.log('the NEW results are:', results)
   return results
 }
-
-// function checkHash(results){
-//   if(results.length < 1 || undefined){
-//     console.log('Array must be filled you dummy')
-//     return
-//   }
-//   for(result in results){
-//     if (result.charAt(0) === '#'){
-//       console.log('yay')
-//     }
-//     else{
-//       console.log('nay')
-//       result = '#' + result
-//     }
-//   }
-//   console.log('the NEW results are:', result)
-// }
 
 function checkHash(results){
   if(results.length < 1 || undefined){
@@ -59,62 +41,19 @@ function checkHash(results){
       results[result] = '#' + results[result]
     }
   }
-  console.log('the NEW results are:', results)
 }
-
-// function checkColorCode(results){
-//   for(result in results){
-//     if (typeof results[result] === 'string'){
-//       console.log('yes string')
-//     }
-//     if (results[result].length === 7){
-//     console.log('yes length 7')
-//     }
-//     else{
-//       console.log('NO! result is', results[result])
-//     }
-//   }
-// }
 
 function checkHexCode(results){
   for(result in results){
-    if (typeof results[result] === 'string' && results[result].length === 7){
-      console.log('probably hex')
-      if (results[result].toLocaleUpperCase().includes('G' || 'H' || 'I' || 'J' || 'K' || 'L' || 'M' || 'N' || 'O' || 'P' || 'Q' || 'R' || 'S' || 'T' || 'U' || 'V' || 'W' || 'X' || 'Y' || 'X')){
-        console.log('Not a HEX:', results[result])
-        toHexCode(results, result)
-      }
-      else{
-        console.log('it must be HEX!')
-      }
+    if ((typeof results[result] === 'string' && results[result].length === 7) && (!(results[result].toLocaleUpperCase().includes('G' || 'H' || 'I' || 'J' || 'K' || 'L' || 'M' || 'N' || 'O' || 'P' || 'Q' || 'R' || 'S' || 'T' || 'U' || 'V' || 'W' || 'X' || 'Y' || 'X')))){
+      console.log('it must be HEX!')
     }
     else{
-      console.log('Not a HEX:', results[result])
+      console.log('ERRRRRORRRR Not a HEX:', results[result])
       toHexCode(results, result)
     }
   }
-  console.log('renewed list:', results)
 }
-
-// function toHexCode(results, index){
-//   if (results[index].toLocaleLowerCase() === '#bruin'){
-//     results[index] = '#A52A2A'
-//   }
-//   else if (results[index].toLocaleLowerCase() === '#lichtblauw'){
-//     results[index] = '#ADD8E6'
-//   }
-//   else if (results[index].toLocaleLowerCase() === '#groen'){
-//     results[index] = '#008000'
-//   }
-//   else if (results[index].toLocaleLowerCase() === '#blauw'){
-//     results[index] = '0000FF'
-//   }
-//   else if (results[index].indexOf(' ') >= 0){
-//     let removedSpace = results[index].replace(/\s+/g, '') //BRON: https://css-tricks.com/snippets/javascript/strip-whitespace-from-string/
-//     results[index] = removedSpace
-//     console.log('space found and removed:', results[index])
-//   }
-// }
 
 function toHexCode(results, index){
   // Check for whitespaces
@@ -124,6 +63,7 @@ function toHexCode(results, index){
   }
   // Check for rgb color
   else if (results[index].includes('rgb')){
+    rgbToHex(results, index)
     console.log('dumb dumb found')
   }
   // Check written color words
@@ -156,6 +96,34 @@ function removeWhitespaces(results, index){
     results[index] = removedSpace
     console.log('space found and removed:', results[index])
 }
+
+function rgbToHex(results, index){
+  // remove the rgb text and other character so only the numbers remain
+  removeRBGStyling(results, index)
+  splitRGBNumbers(results, index)
+  rgbNumbersToHex(results, index)
+}
+
+function removeRBGStyling(results, index){
+  let rgb = results[index].split("(")[1].split(")")[0] // split
+  console.log(rgb)
+  results[index] = rgb
+}
+
+function splitRGBNumbers(results, index){
+  let rgbValues = results[index].replace('.', ',')
+  results[index] = rgbValues.split(",")
+}
+
+function rgbNumbersToHex(results, index){
+    let hexArray = results[index].map(function(rgbValue){       //For each array element
+      rgbValue = parseInt(rgbValue).toString(16);             //Convert to a base16 string
+      return (rgbValue.length==1) ? "0"+rgbValue : rgbValue;  //Add zero if we get only one character BRON: https://stackoverflow.com/questions/13070054/convert-rgb-strings-to-hex-in-javascript/13070198
+  })
+  console.log('#'+hexArray.join(''))
+  results[index] = '#'+hexArray.join('')
+}
+
 
 //
 // const surveyAnswers = data
