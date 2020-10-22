@@ -14,6 +14,7 @@ userInputButton.addEventListener('click', function(e){
   columnName = userInput.value;
   console.log('userInput is:', columnName)
   answersToQuery = getAnswerOfQuery(surveyAnswers, columnName)
+  console.log('the CLEANED results are:', results)
 })
 
 function getAnswerOfQuery(list, query){
@@ -23,7 +24,6 @@ function getAnswerOfQuery(list, query){
   checkHash(results)
   // Check if string is a HEX
   checkHexCode(results)
-  console.log('the NEW results are:', results)
   return results
 }
 
@@ -33,11 +33,7 @@ function checkHash(results){
     return
   }
   for(result in results){
-    if (results[result].charAt(0) === '#'){
-      console.log('yay')
-    }
-    else{
-      console.log('nay')
+    if (!(results[result].charAt(0) === '#')){
       results[result] = '#' + results[result]
     }
   }
@@ -116,40 +112,10 @@ function splitRGBNumbers(results, index){
 }
 
 function rgbNumbersToHex(results, index){
-    let hexArray = results[index].map(function(rgbValue){       //For each array element
+    let hexArray = results[index].map(function(rgbValue){     //For each array element
       rgbValue = parseInt(rgbValue).toString(16);             //Convert to a base16 string
       return (rgbValue.length==1) ? "0"+rgbValue : rgbValue;  //Add zero if we get only one character BRON: https://stackoverflow.com/questions/13070054/convert-rgb-strings-to-hex-in-javascript/13070198
   })
   console.log('#'+hexArray.join(''))
   results[index] = '#'+hexArray.join('')
 }
-
-
-//
-// const surveyAnswers = data
-// console.log('Alle survey antwoorden:', surveyAnswers)
-// let columnName = "schoenmaat";
-// let answersToQuery = []
-//
-// let listOfAnswers = []
-// answersToQuery = getAnswerOfQuery(surveyAnswers, columnName)
-//
-// console.log(answersToQuery)
-//
-// function getAnswerOfQuery(list, query){
-//   let results = []
-//   for(answer of surveyAnswers){
-//     results.push(answer[query])
-//   }
-//   return results
-// }
-
-// for (answer of listOfAnswers){
-//   listOfAnswers.push(answer[columnName])
-//   console.log('list:', listOfAnswers)
-// }
-
-// voor elke answer haal ik answer[columnName] op en stop deze in specificAnswers const
-// const specificAnswers = listOfAnswers.map(answer => answer[columnName])
-// map = voor elk element dat hier zit, ga ik iets docenten
-// map voert function uit op elk element in de array
