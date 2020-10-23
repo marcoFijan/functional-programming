@@ -114,9 +114,7 @@ function wordToHex(results, index){
 }
 
 function removeWhitespaces(results, index){
-    let removedEmptySpace = results[index].replace(/\s+/g, '') //BRON: https://css-tricks.com/snippets/javascript/strip-whitespace-from-string/
-    console.log('space found and removed:', removedEmptySpace)
-    return removedEmptySpace
+    return results[index].replace(/\s+/g, '') //BRON: https://css-tricks.com/snippets/javascript/strip-whitespace-from-string/
 }
 
 function rgbToHex(results, index){                                              // Run multiple functions to convert rgb to hex
