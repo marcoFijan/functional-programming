@@ -1,16 +1,22 @@
+## MAIN QUESTION
+My main question (in Dutch) is:
+"Hoeveel en welke parkeerplaatsen in Nederland zijn toegankelijk voor mensen met een lichamelijke beperking?""
+Which means:
+"How many parkingspots are available in the Netherlands for people with a phisical limitation"
+
+For my research, setup of questions and assumptions of those questions, please visit my wiki where I explain everything in detail: [Wiki: Research and Ideas](https://github.com/marcoFijan/functional-programming/wiki/Onderzoeksvragen-en-idee%C3%ABn)
+
 ## Concept
-I am writing a simple project where I gather the data from a dataset from a json file. The user can receive certain columns from the dataset by using the textbox on the HTMLpage. After the user typed his or her query, the program will then check if the user typed a valid input. If the input is valid, the program will try to 'clean' the data. Empty values, wrong format values and whitespaces will be fixed. If the program is unable to fix a certain value, the program will return a warning but continue with the other values. That way the user will still receive his or her preferred column.
-For more information about the development of this project, navigate to [my wiki](https://github.com/marcoFijan/functional-programming/wiki/Opschonen-van-Data)
+I am writing a simple project where I am practising with receiving data from an api. I'm using the same html and textinput from my previous project in this repo. I will try to collect specific columns and clean them. Besides that I will compare columns with eachother to find interesting data. For the data I will be using different api's from RDW. I want to find answers for my main question
 
 ## Features
 As of now, this project has the following features:
+* Project will make a connection to an api from RDW
 * User can give input on which column he or she wants to see in the console
-* UserInput will be checked and converted to a valid input if possible
-* The column 'oogKleur' will be coverted and cleaned into usable data
 
 ## Data used
-For this project I am using a dataset of an enquëte from Datavisualisatie 2. This dataset contains several interesting insights about CMD-students. This dataset has been created by Jan-Jaap Rijpkema and converted into json by Jonah Meijers.
-The data for this dataset has been collected in September from CMD-students who are in the beginning of their third year.
+Aw of now, the only data used in this project is one api from RDW with specific data of parkingarea's (capacity, maximum height, maximum weight etc...)
+
 
 ## How to install and use
 ### OPTION 1: Cloning git

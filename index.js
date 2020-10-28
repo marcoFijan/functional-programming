@@ -1,6 +1,5 @@
 // Variables
 const rawDataURL = 'https://opendata.rdw.nl/resource/b3us-f26s.json'
-// const column = "capacity"
 const userInput = document.querySelector(".userInput")
 const userInputButton = document.querySelector(".userInputButton")
 
@@ -29,6 +28,13 @@ function getData(url) {
 // Select one column you want to receive
 function getColumnData(dataArray, column){
   return dataArray.map(value => value[column])
+}
+
+function getColumnData(dataArray, column1, column2){
+  const columnList = []
+  columnList.push(dataArray.map(value => value[column1]))
+  columnList.push(dataArray.map(value => value[column2]))
+  return columnList  
 }
 
 // CODE FOR CLEANING ENQUETE DATASET:
