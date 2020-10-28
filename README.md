@@ -1,13 +1,9 @@
-## MAIN QUESTION
-My main question (in Dutch) is:
-"Hoeveel en welke parkeerplaatsen in Nederland zijn toegankelijk voor mensen met een lichamelijke beperking?""
-Which means:
-"How many parkingspots are available in the Netherlands for people with a phisical limitation"
+## Concept
+How many parkingspots are available in the Netherlands for people with a phisical limitation?
+
+I am writing a simple project where I am practising with receiving data from an api. I'm using the same html and textinput from my previous project in this repo. I will try to collect specific columns and clean them. Besides that I will compare columns with eachother to find interesting data. For the data I will be using different api's from RDW. I want to find answers for my main question
 
 For my research, setup of questions and assumptions of those questions, please visit my wiki where I explain everything in detail: [Wiki: Research and Ideas](https://github.com/marcoFijan/functional-programming/wiki/Onderzoeksvragen-en-idee%C3%ABn)
-
-## Concept
-I am writing a simple project where I am practising with receiving data from an api. I'm using the same html and textinput from my previous project in this repo. I will try to collect specific columns and clean them. Besides that I will compare columns with eachother to find interesting data. For the data I will be using different api's from RDW. I want to find answers for my main question
 
 ## Features
 As of now, this project has the following features:
