@@ -5,9 +5,6 @@ I am writing a simple project where I am practising with receiving data from an 
 
 For my research, setup of questions and assumptions of those questions, please visit my wiki where I explain everything in detail: [Wiki: Research and Ideas](https://github.com/marcoFijan/functional-programming/wiki/Onderzoeksvragen-en-idee%C3%ABn)
 
-### Concept sketch
-[![Artboard-1-copy-5-100.jpg](https://i.postimg.cc/PrXQF6j2/Artboard-1-copy-5-100.jpg)](https://postimg.cc/xqZmX3qz)
-
 ## Features
 As of now, this project has the following features:
 * Project will make a connection to an api from RDW
