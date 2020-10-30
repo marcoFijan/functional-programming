@@ -18,8 +18,8 @@ userInputButton.addEventListener('click', function(e){                          
 
 function getAnswerOfQuery(list, query){
   let results = list.map(answer => answer[query])                               //Create new array of the specific column called results
-  console.log('results are:', results)
-  let hashResultsChecked = checkHash(results)                                   //Check if string begins with #
+  let removedEmptyItems = removeEmptyItems(results)
+  let hashResultsChecked = checkHash(removedEmptyItems)                                   //Check if string begins with #
   let dataCleaned = checkHexCode(hashResultsChecked)                            // Check if string is a HEX
   return dataCleaned                                                            // Return the cleaned data
 }
@@ -49,6 +49,10 @@ function grammerFixed(keywordArray, input){                                     
     }
   });
   return (hasKeyword => 1)
+}
+
+function removeEmptyItems(array){
+  return array.filter(cleanData => cleanData != "")
 }
 
 function checkHash(results){                                                    // Check if arrayItems start with #
