@@ -5,8 +5,11 @@ For more information about the development of this project, navigate to [my wiki
 ## Features
 As of now, this project has the following features:
 * User can give input on which column he or she wants to see in the console
+[![1.png](https://i.postimg.cc/MT6nVypX/1.png)](https://postimg.cc/Tys2X5mX)
 * UserInput will be checked and converted to a valid input if possible
+[![2.png](https://i.postimg.cc/7PQ5JJ8Y/2.png)](https://postimg.cc/CdkhW1xW)
 * The column 'oogKleur' will be coverted and cleaned into usable data
+[![3.png](https://i.postimg.cc/vmMTwW9X/3.png)](https://postimg.cc/jDgtznMJ)
 
 ## Data used
 For this project I am using a dataset of an enquëte from Datavisualisatie 2. This dataset contains several interesting insights about CMD-students. This dataset has been created by Jan-Jaap Rijpkema and converted into json by Jonah Meijers.
