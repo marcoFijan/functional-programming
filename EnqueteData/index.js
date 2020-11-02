@@ -18,6 +18,7 @@ userInputButton.addEventListener('click', function(e){                          
 
 function getAnswerOfQuery(list, query){
   let results = list.map(answer => answer[query])                               //Create new array of the specific column called results
+  console.log('Kolom', query, "heeft de volgende waarden:", results)
   let removedEmptyItems = removeEmptyItems(results)
   let hashResultsChecked = checkHash(removedEmptyItems)                                   //Check if string begins with #
   let dataCleaned = checkHexCode(hashResultsChecked)                            // Check if string is a HEX
